@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name="t_ordenes")
@@ -52,6 +53,11 @@ public class Orden extends PanacheEntityBase {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public static List<Orden> findbyUser(String name){
+        List<Orden> ordenes = Orden.listAll();
+        return ordenes.stream().filter(o -> o.getUser().equals(name)).toList();
     }
 
 

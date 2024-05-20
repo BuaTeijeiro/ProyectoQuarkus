@@ -104,15 +104,15 @@ public class ServiceTest {
 	}
 
 	
-    /*
+    
     @Test
 	public void test_carga_orden() {
         Assertions.assertThat(servicio).isNotNull();
 		List<Orden> ordenes = servicio.cargaOrden("Hermione");
 		Assertions.assertThat(ordenes).isNotNull();
 		Assertions.assertThat(ordenes).hasSize(1);
-		Assertions.assertThat(ordenes.get(0).getUser().getNombre()).isEqualToIgnoringCase("Hermione");
-		Assertions.assertThat(ordenes.get(0).getItem().getNombre()).isEqualTo("+5 Dexterity Vest");
+		Assertions.assertThat(ordenes.get(0).getUser()).isEqualToIgnoringCase("Hermione");
+		Assertions.assertThat(ordenes.get(0).getItem()).isEqualTo("+5 Dexterity Vest");
 	}
     
     @Test
@@ -123,6 +123,7 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isEmpty();
 	}
 
+    /*
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
