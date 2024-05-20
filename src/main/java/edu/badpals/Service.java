@@ -7,6 +7,8 @@ import edu.badpals.domain.Orden;
 import edu.badpals.domain.Usuaria;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 @ApplicationScoped
@@ -29,5 +31,17 @@ public class Service {
 
     public static List<Orden> cargaOrden(String name){
         return Orden.findbyUser(name);
+    }
+
+    @Transactional
+    public static Orden comanda(String user, String item){
+        Orden orden = null;
+        Optional<Usuaria> ordenUser = Usuaria.findByIdOptional(user);
+        Optional<Item> ordenItem = Item.findByIdOptional(item);
+        if (ordenUser.isPresent() && ordenItem.isPresent()){
+            orden = new Orden(user, item);
+            orden.persist();
+        }
+        return orden;
     }
 }

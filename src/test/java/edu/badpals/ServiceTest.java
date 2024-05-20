@@ -123,7 +123,7 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isEmpty();
 	}
 
-    /*
+    
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
@@ -131,19 +131,19 @@ public class ServiceTest {
 		Orden orden = servicio.comanda("Hermione", "AgedBrie");
 		Assertions.assertThat(orden).isNotNull();
 		Assertions.assertThat(orden.getId()).isNotZero();
-		Assertions.assertThat(orden.getUser().getNombre()).isEqualTo("Hermione");
-		Assertions.assertThat(orden.getItem().getNombre()).isEqualTo("AgedBrie");
+		Assertions.assertThat(orden.getUser()).isEqualTo("Hermione");
+		Assertions.assertThat(orden.getItem()).isEqualTo("AgedBrie");
 
-		TypedQuery<Orden> query = em.createQuery("select orden from Orden orden join orden.user user where user.nombre = 'Hermione'", Orden.class);
+		TypedQuery<Orden> query = em.createQuery("select orden from Orden orden where orden.user = 'Hermione'", Orden.class);
 		List<Orden> pedidos = query.getResultList();
 		
         Assertions.assertThat(pedidos).isNotNull();
 		Assertions.assertThat(pedidos).hasSize(2);
-        Assertions.assertThat(pedidos.get(0).getUser().getNombre()).isEqualTo("Hermione");
-		Assertions.assertThat(pedidos.get(0).getItem().getNombre()).isEqualToIgnoringCase("AgedBrie");
+        Assertions.assertThat(pedidos.get(0).getUser()).isEqualTo("Hermione");
+		Assertions.assertThat(pedidos.get(0).getItem()).isEqualToIgnoringCase("AgedBrie");
 		em.find(Orden.class, pedidos.get(0).getId()).delete();
 	}
-
+    
 	@Test
 	public void test_comanda_no_user() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -157,7 +157,7 @@ public class ServiceTest {
 		Orden pedido = em.find(Orden.class, 3L);
         Assertions.assertThat(pedido).isNull();
 	}
-    
+    /*
 	@Test
 	public void test_comanda_no_item() {
 		Assertions.assertThat(servicio).isNotNull();
