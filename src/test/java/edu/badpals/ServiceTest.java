@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import edu.badpals.domain.Item;
+import edu.badpals.domain.Orden;
 import edu.badpals.domain.Usuaria;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
@@ -45,17 +46,17 @@ public class ServiceTest {
         Assertions.assertThat(elfo.getDestreza()).isEqualTo(15);
 	}
 
-    /*
+    
 	@Test 
 	public void test_mapping_orden() {
 		Orden pedido = em.find(Orden.class, 100L);
         Assertions.assertThat(pedido).isNotNull();
-        Assertions.assertThat(pedido.getUser().getNombre()).isEqualTo("Doobey");
-		Assertions.assertThat(pedido.getItem().getNombre()).isEqualToIgnoringCase("Elixir of the Mongoose");
+        Assertions.assertThat(pedido.getUser()).isEqualTo("Doobey");
+		Assertions.assertThat(pedido.getItem()).isEqualToIgnoringCase("Elixir of the Mongoose");
 	}
 
 	
-
+    /*
     @Test
 	public void test_inyeccion_servicio() {
 		Assertions.assertThat(servicio).isNotNull();
