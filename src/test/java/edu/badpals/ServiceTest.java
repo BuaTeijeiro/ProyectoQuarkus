@@ -21,10 +21,8 @@ public class ServiceTest {
     @PersistenceContext
     jakarta.persistence.EntityManager em;
 
-    /* 
     @Inject
-    ServiceOlli servicio;
-    */
+    Service servicio;
     
     @Test
     public void test_mapping_normalItem() {
@@ -56,13 +54,13 @@ public class ServiceTest {
 	}
 
 	
-    /*
+    
     @Test
 	public void test_inyeccion_servicio() {
 		Assertions.assertThat(servicio).isNotNull();
 	}
 
-	
+	/*
 	@Test
 	public void test_carga_usuaria() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -71,6 +69,8 @@ public class ServiceTest {
 		Assertions.assertThat(elfo.getNombre()).isEqualTo("Doobey");
         Assertions.assertThat(elfo.getDestreza()).isEqualTo(15);
 	}
+
+    
 
     @Test
 	public void test_carga_usuaria_no_existe() {
