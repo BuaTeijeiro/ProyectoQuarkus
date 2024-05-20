@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import edu.badpals.domain.Item;
+import edu.badpals.domain.Usuaria;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
@@ -35,7 +36,7 @@ public class ServiceTest {
 
     
 
-	/*
+	
 	@Test
 	public void test_mapping_usuaria() {
 		Usuaria elfo = em.find(Usuaria.class, "Doobey");
@@ -44,7 +45,7 @@ public class ServiceTest {
         Assertions.assertThat(elfo.getDestreza()).isEqualTo(15);
 	}
 
-    
+    /*
 	@Test 
 	public void test_mapping_orden() {
 		Orden pedido = em.find(Orden.class, 100L);
