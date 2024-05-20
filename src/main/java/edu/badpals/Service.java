@@ -9,6 +9,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
@@ -38,10 +39,25 @@ public class Service {
         Orden orden = null;
         Optional<Usuaria> ordenUser = Usuaria.findByIdOptional(user);
         Optional<Item> ordenItem = Item.findByIdOptional(item);
-        if (ordenUser.isPresent() && ordenItem.isPresent()){
+        if (ordenUser.isPresent() && ordenItem.isPresent() 
+            && ordenUser.get().getDestreza() >= ordenItem.get().getQuality()){
             orden = new Orden(user, item);
             orden.persist();
         }
         return orden;
     }
+
+    @Transactional
+    public List<Orden> comandaMultiple(String user, List<String> items) {
+        List<Orden> ordenes = new ArrayList<>();
+        for (String item: items){
+            Orden thisOrden = Service.comanda(user, item);
+            if (thisOrden != null){
+                ordenes.add(thisOrden);
+            }
+        }
+        return ordenes;
+    }
+
+    
 }

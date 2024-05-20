@@ -157,7 +157,7 @@ public class ServiceTest {
 		Orden pedido = em.find(Orden.class, 3L);
         Assertions.assertThat(pedido).isNull();
 	}
-    /*
+    
 	@Test
 	public void test_comanda_no_item() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -172,6 +172,7 @@ public class ServiceTest {
         Assertions.assertThat(pedido).isNull();
 	}
 
+    
 	@Test
 	public void test_comanda_item_sin_pro() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -182,7 +183,7 @@ public class ServiceTest {
         Assertions.assertThat(pedido).isNull();
 	}
 
-
+   
 	@Test
 	@Transactional
 	public void test_ordenar_multiples_items_ok() {
@@ -191,19 +192,20 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isNotEmpty();
 		Assertions.assertThat(ordenes).size().isEqualTo(2);
 
-		TypedQuery<Orden> query = em.createQuery("select orden from Orden orden join orden.user user where user.nombre = 'Hermione'", Orden.class);
+		TypedQuery<Orden> query = em.createQuery("select orden from Orden orden where orden.user = 'Hermione'", Orden.class);
 		List<Orden> pedidos = query.getResultList();
 		
         Assertions.assertThat(pedidos).isNotNull();
 		Assertions.assertThat(pedidos).hasSize(3);
-        Assertions.assertThat(pedidos.get(0).getUser().getNombre()).isEqualTo("Hermione");
-		Assertions.assertThat(pedidos.get(0).getItem().getNombre()).isEqualToIgnoringCase("AgedBrie");
-		Assertions.assertThat(pedidos.get(1).getItem().getNombre()).isEqualToIgnoringCase("Elixir of the Mongoose");
-		Assertions.assertThat(pedidos.get(2).getItem().getNombre()).isEqualToIgnoringCase("+5 Dexterity Vest");
+        Assertions.assertThat(pedidos.get(0).getUser()).isEqualTo("Hermione");
+		Assertions.assertThat(pedidos.get(0).getItem()).isEqualToIgnoringCase("AgedBrie");
+		Assertions.assertThat(pedidos.get(1).getItem()).isEqualToIgnoringCase("Elixir of the Mongoose");
+		Assertions.assertThat(pedidos.get(2).getItem()).isEqualToIgnoringCase("+5 Dexterity Vest");
 		em.find(Orden.class, pedidos.get(1).getId()).delete();
 		em.find(Orden.class, pedidos.get(0).getId()).delete();
 	}
 
+    
 	@Test
 	@Transactional
 	public void test_ordenar_multiples_items_no_user() {
@@ -212,7 +214,7 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isEmpty();
 	}
 
-
+    /* 
 	@Test
 	@Transactional
 	public void test_ordenar_multiples_items_no_item() {
@@ -220,6 +222,5 @@ public class ServiceTest {
 		List<Orden> ordenes = servicio.comandaMultiple("Hermione", Arrays.asList("Guardapelo Salazar", "Reliquias de la Muerte"));
 		Assertions.assertThat(ordenes).isEmpty();
 
-	}
-    */
-	}
+	}*/
+}
