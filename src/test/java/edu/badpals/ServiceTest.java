@@ -71,7 +71,7 @@ public class ServiceTest {
 	}
 
     
-    /*
+    
     @Test
 	public void test_carga_usuaria_no_existe() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -82,7 +82,7 @@ public class ServiceTest {
 	}
 
     
-
+    /*
     @Test
 	public void test_carga_item() {
         Assertions.assertThat(servicio).isNotNull();
