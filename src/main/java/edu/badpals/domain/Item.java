@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Item extends PanacheEntityBase{
     @Id
     @Column(name="item_nom")
-    String nombre;
+    String nombre ="";
 
     @Column(name="item_prop")
     int quality;

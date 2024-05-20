@@ -82,7 +82,7 @@ public class ServiceTest {
 	}
 
     
-    /*
+    
     @Test
 	public void test_carga_item() {
         Assertions.assertThat(servicio).isNotNull();
@@ -91,6 +91,8 @@ public class ServiceTest {
 		Assertions.assertThat(item.getNombre()).isEqualTo("Elixir of the Mongoose");
 		Assertions.assertThat(item.getQuality()).isEqualTo(7);
 	}
+
+    
     
     @Test
 	public void test_carga_item_no_existe() {
@@ -102,7 +104,7 @@ public class ServiceTest {
 	}
 
 	
-
+    /*
     @Test
 	public void test_carga_orden() {
         Assertions.assertThat(servicio).isNotNull();

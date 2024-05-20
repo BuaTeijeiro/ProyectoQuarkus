@@ -2,6 +2,7 @@ package edu.badpals;
 
 import java.util.Optional;
 
+import edu.badpals.domain.Item;
 import edu.badpals.domain.Usuaria;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.PersistenceContext;
@@ -17,5 +18,10 @@ public class Service {
     public static Usuaria cargaUsuaria(String nombre){
         Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre);
         return usuaria.isPresent()? usuaria.get(): new Usuaria();
+    }
+
+    public static Item cargaItem(String nombre){
+        Optional<Item> item = Item.findByIdOptional(nombre);
+        return item.isPresent()? item.get(): new Item();
     }
 }
