@@ -14,7 +14,8 @@ public class Service {
 
     Service(){}
 
-    /*public static Usuaria cargaUsuaria(String nombre){
-        Optional<Usuaria> usuaria = 
-    }*/
+    public static Usuaria cargaUsuaria(String nombre){
+        Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre);
+        return usuaria.isPresent()? usuaria.get(): new Usuaria();
+    }
 }
