@@ -214,7 +214,7 @@ public class ServiceTest {
 		Assertions.assertThat(ordenes).isEmpty();
 	}
 
-    /* 
+   
 	@Test
 	@Transactional
 	public void test_ordenar_multiples_items_no_item() {
@@ -222,5 +222,5 @@ public class ServiceTest {
 		List<Orden> ordenes = servicio.comandaMultiple("Hermione", Arrays.asList("Guardapelo Salazar", "Reliquias de la Muerte"));
 		Assertions.assertThat(ordenes).isEmpty();
 
-	}*/
+	}
 }
