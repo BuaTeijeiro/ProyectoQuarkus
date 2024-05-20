@@ -1,5 +1,6 @@
 package edu.badpals.domain;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="t_ordenes")
-public class Orden {
+public class Orden extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ord_id")

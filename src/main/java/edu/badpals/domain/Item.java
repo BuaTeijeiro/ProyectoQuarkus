@@ -1,5 +1,6 @@
 package edu.badpals.domain;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="t_items")
-public class Item {
+public class Item extends PanacheEntityBase{
     @Id
     @Column(name="item_nom")
     String nombre;
