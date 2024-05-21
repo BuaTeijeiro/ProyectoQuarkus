@@ -55,11 +55,6 @@ public class Orden extends PanacheEntityBase {
         this.item = item;
     }
 
-    public static List<Orden> findbyUser(String name){
-        List<Orden> ordenes = Orden.listAll();
-        return ordenes.stream().filter(o -> o.getUser().equals(name)).toList();
-    }
-
 
 
 }

@@ -6,6 +6,7 @@ import edu.badpals.domain.Item;
 import edu.badpals.domain.Orden;
 import edu.badpals.domain.Usuaria;
 import edu.badpals.repository.ItemRepository;
+import edu.badpals.repository.OrdenRepository;
 import edu.badpals.repository.UsuariaRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -27,6 +28,9 @@ public class Service {
     @Inject
     UsuariaRepository usuariaRepo;
 
+    @Inject
+    OrdenRepository ordenRepo;
+
     Service(){}
 
     public Usuaria cargaUsuaria(String nombre){
@@ -40,7 +44,7 @@ public class Service {
     }
 
     public List<Orden> cargaOrden(String name){
-        return Orden.findbyUser(name);
+        return ordenRepo.findbyUser(name);
     }
 
     @Transactional
