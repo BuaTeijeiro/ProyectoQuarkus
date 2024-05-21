@@ -6,6 +6,7 @@ import edu.badpals.domain.Item;
 import edu.badpals.domain.Orden;
 import edu.badpals.domain.Usuaria;
 import edu.badpals.repository.ItemRepository;
+import edu.badpals.repository.UsuariaRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
@@ -23,10 +24,13 @@ public class Service {
     @Inject
     ItemRepository itemRepo;
 
+    @Inject
+    UsuariaRepository usuariaRepo;
+
     Service(){}
 
     public Usuaria cargaUsuaria(String nombre){
-        Optional<Usuaria> usuaria = Usuaria.findByIdOptional(nombre);
+        Optional<Usuaria> usuaria = usuariaRepo.findByIdOptional(nombre);
         return usuaria.isPresent()? usuaria.get(): new Usuaria();
     }
 
@@ -42,8 +46,8 @@ public class Service {
     @Transactional
     public Orden comanda(String user, String item){
         Orden orden = null;
-        Optional<Usuaria> ordenUser = Usuaria.findByIdOptional(user);
-        Optional<Item> ordenItem = Item.findByIdOptional(item);
+        Optional<Usuaria> ordenUser = usuariaRepo.findByIdOptional(user);
+        Optional<Item> ordenItem = itemRepo.findByIdOptional(item);
         if (ordenUser.isPresent() && ordenItem.isPresent() 
             && ordenUser.get().getDestreza() >= ordenItem.get().getQuality()){
             orden = new Orden(user, item);
