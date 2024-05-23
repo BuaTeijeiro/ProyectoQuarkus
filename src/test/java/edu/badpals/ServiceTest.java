@@ -141,7 +141,8 @@ public class ServiceTest {
 		Assertions.assertThat(pedidos).hasSize(2);
         Assertions.assertThat(pedidos.get(0).getUser()).isEqualTo("Hermione");
 		Assertions.assertThat(pedidos.get(0).getItem()).isEqualToIgnoringCase("AgedBrie");
-		em.find(Orden.class, pedidos.get(0).getId()).delete();
+		Orden ordenToDelete = em.find(Orden.class, pedidos.get(0).getId());
+		em.remove(ordenToDelete);
 	}
     
 	@Test
@@ -201,8 +202,10 @@ public class ServiceTest {
 		Assertions.assertThat(pedidos.get(0).getItem()).isEqualToIgnoringCase("AgedBrie");
 		Assertions.assertThat(pedidos.get(1).getItem()).isEqualToIgnoringCase("Elixir of the Mongoose");
 		Assertions.assertThat(pedidos.get(2).getItem()).isEqualToIgnoringCase("+5 Dexterity Vest");
-		em.find(Orden.class, pedidos.get(1).getId()).delete();
-		em.find(Orden.class, pedidos.get(0).getId()).delete();
+		Orden orden1 = em.find(Orden.class, pedidos.get(1).getId());
+		Orden orden2 = em.find(Orden.class, pedidos.get(0).getId());
+		em.remove(orden2);
+		em.remove(orden1);
 	}
 
     

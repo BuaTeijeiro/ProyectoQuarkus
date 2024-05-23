@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="t_items")
-public class Item extends PanacheEntityBase{
+public class Item {
     @Id
     @Column(name="item_nom")
     String nombre ="";

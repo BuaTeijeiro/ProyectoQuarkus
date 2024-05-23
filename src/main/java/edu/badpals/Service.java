@@ -55,7 +55,7 @@ public class Service {
         if (ordenUser.isPresent() && ordenItem.isPresent() 
             && ordenUser.get().getDestreza() >= ordenItem.get().getQuality()){
             orden = new Orden(user, item);
-            orden.persist();
+            ordenRepo.persist(orden);
         }
         return orden;
     }

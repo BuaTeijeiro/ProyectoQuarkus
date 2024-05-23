@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="t_users")
-public class Usuaria extends PanacheEntityBase {
+public class Usuaria {
     @Id
     @Column(name="user_nom")
     String nombre = "";

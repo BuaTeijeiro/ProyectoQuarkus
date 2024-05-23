@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name="t_ordenes")
-public class Orden extends PanacheEntityBase {
+public class Orden {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ord_id")
