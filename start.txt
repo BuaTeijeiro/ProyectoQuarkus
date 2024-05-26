@@ -1,0 +1,13 @@
+Iniciar quarkus
+
+quarkus create app org.acme:getting-started \
+    --extension='rest'
+
+Listar extensiones
+./mvnw quarkus:list-extensions
+quarkus extension
+
+
+Añadir extension
+./mvnw quarkus:add-extension -Dextensions='hibernate-validator'
+quarkus extension add hibernate-validator
